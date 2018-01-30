@@ -351,7 +351,7 @@ contract AChain is ERC827Token {
   /**
    * @dev Constructor that gives msg.sender all of existing tokens.
    */
-  function Palacete1Token() public {
+  function AChain() public {
     totalSupply_ = INITIAL_SUPPLY;
     balances[msg.sender] = INITIAL_SUPPLY;
     Transfer(0x0, msg.sender, INITIAL_SUPPLY);
