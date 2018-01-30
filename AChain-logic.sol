@@ -24,12 +24,13 @@ contract AChainLogic{
         uint256 allowedValue = tokenContract.allowance(tx.origin, this);
         require(allowedValue == 50);
         tokenContract.transferFrom(tx.origin, this, allowedValue);
-        openTheDoor();
+        return openTheDoor();
     }
     
     function openTheDoor() private returns (bool)
     {
         doorState = "opened";
+	return true;
     }
     
 }
