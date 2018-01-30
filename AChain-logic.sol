@@ -15,22 +15,22 @@ contract ERC20 is ERC20Basic {
 }
 
 contract AChainLogic{
-    string public doorState = "closed";
+    string public doorState;
     
-    function AChainLogic() public {}
+    function AChainLogic() public { doorState = "closed";}
     
     function PayToExecute() public returns (bool) {
         ERC20 tokenContract = ERC20(msg.sender);
         uint256 allowedValue = tokenContract.allowance(tx.origin, this);
-        require(allowedValue == 50);
-        tokenContract.transferFrom(tx.origin, this, allowedValue);
+        require(allowedValue >= 50);
+        tokenContract.transferFrom(tx.origin, this, 50);
         return openTheDoor();
     }
     
     function openTheDoor() private returns (bool)
     {
         doorState = "opened";
-	return true;
+        return true;
     }
     
 }
