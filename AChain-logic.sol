@@ -15,6 +15,8 @@ contract ERC20 is ERC20Basic {
 }
 
 contract AChainLogic{
+    string public doorState = "closed";
+    
     function AChainLogic() public {}
     
     function PayToExecute() public returns (bool) {
@@ -27,7 +29,7 @@ contract AChainLogic{
     
     function openTheDoor() private returns (bool)
     {
-        return true;
+        doorState = "opened";
     }
     
 }
